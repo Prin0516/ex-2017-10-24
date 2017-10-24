@@ -7,6 +7,7 @@ import java.awt.event.WindowEvent;
 import java.util.Random;
 
 public class MainFrame extends JFrame {
+    private LoginFrame loginFrame;
     private  Random rnd=new Random(System.currentTimeMillis());
     private JMenuBar jmb=new JMenuBar();
     private JMenu mF=new JMenu("File");
@@ -15,6 +16,8 @@ public class MainFrame extends JFrame {
     private JMenu mA=new JMenu("About");
     private JMenuItem jmiexit=new JMenuItem("Exit");
     private JMenuItem jmiloto=new JMenuItem("Loto");
+    private JButton jbtnexit=new JButton("Close");
+    private JButton jbtnregen=new JButton("Generate");
     private JDesktopPane jdp=new JDesktopPane();
     private JInternalFrame jif=new JInternalFrame();
     private Container cp;
@@ -24,28 +27,41 @@ public class MainFrame extends JFrame {
     private int screenW=Toolkit.getDefaultToolkit().getScreenSize().width;
     private int screenH=Toolkit.getDefaultToolkit().getScreenSize().height;
     private int width=500,height=500;
-    public MainFrame(){
+    public MainFrame(LoginFrame log){
+        loginFrame=log;
         init();
     }
     private void init(){
         this.setBounds(screenW/2-width/2,screenH/2-height/2,width,height);
-        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                loginFrame.setVisible(true);
+            }
+        });
+        this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         this.setJMenuBar(jmb);
         jmb.add(mF);
         jmb.add(mS);
         jmb.add(mG);
         jmb.add(mA);
         mF.add(jmiexit);
-        mF.add(jmiloto);
+        mG.add(jmiloto);
         this.setContentPane(jdp);
         cp=jif.getContentPane();
-        cp.setLayout((new BorderLayout(5,5));
+        cp.setLayout((new BorderLayout(5,5)));
+        cp.add(jpl,BorderLayout.CENTER);
+        cp.add(jpl1,BorderLayout.SOUTH);
+        jpl1.add(jbtnexit);
+        jpl1.add(jbtnregen);
         for(int i=0;i<6;i++){
             jlb[i]=new JLabel();
-            cp.add(jlb[i]);
+            jlb[i].setOpaque(true);
+            jlb[i].setBackground(new Color(102, 189, 248));
+            jpl.add(jlb[i]);
         }
-        jlabel();
         jmiexit.setAccelerator(KeyStroke.getKeyStroke('X',Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+        jmiloto.setAccelerator(KeyStroke.getKeyStroke('L',Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
         jmiexit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -56,18 +72,27 @@ public class MainFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 jdp.add(jif);
-                jif.setBounds(10,10,300,200);
+                jif.setBounds(10,10,300,100);
                 jif.setVisible(true);
+                jlabel();
             }
         });
-        this.addWindowListener(new WindowAdapter() {
+
+        jbtnexit.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                jif.dispose();
+            }
+
+        });
+        jbtnregen.addActionListener(new ActionListener() {
             @Override
-            public void windowClosing(WindowEvent e) {
-                System.exit(0);
+            public void actionPerformed(ActionEvent e) {
+                jlabel();
             }
         });
     }
-    public void jlabel(){
+
+    private void jlabel(){
         int data[]=new int[6];
         int i=0;
        while(i<6){
