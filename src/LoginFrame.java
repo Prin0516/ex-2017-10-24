@@ -41,7 +41,7 @@ public class LoginFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(jtfID.getText().equals("h304")&&new String(jpf.getPassword()).equals("23323456")){
-                    MainFrame mf=new MainFrame(LoginFrame.this);
+                    MainFrame mf= new MainFrame();
                     LoginFrame.this.setVisible(false);
                     mf.setVisible(true);
                 }else{
