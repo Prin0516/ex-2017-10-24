@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="85b8661f-5f03-41a1-a858-0078294cb401" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LoginFrame.java" afterPath="$PROJECT_DIR$/src/LoginFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainFrame.java" afterPath="$PROJECT_DIR$/src/MainFrame.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -185,12 +183,20 @@
       <updated>1508852422746</updated>
       <workItem from="1508852426982" duration="3925000" />
       <workItem from="1508944941458" duration="695000" />
-      <workItem from="1509031952745" duration="596000" />
+      <workItem from="1509031952745" duration="606000" />
     </task>
+    <task id="LOCAL-00001" summary="ex">
+      <created>1509032557617</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1509032557617</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5216000" />
+    <option name="totallyTimeSpent" value="5226000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -230,6 +236,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ex" />
+    <option name="LAST_COMMIT_MESSAGE" value="ex" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
