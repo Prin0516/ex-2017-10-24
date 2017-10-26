@@ -42,12 +42,17 @@ public class LoginFrame extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if(jtfID.getText().equals("h304")&&new String(jpf.getPassword()).equals("23323456")){
                     MainFrame mf= new MainFrame(LoginFrame.this);
-                    LoginFrame.this.setVisible(false);
                     mf.setVisible(true);
+                    LoginFrame.this.setVisible(false);
                 }else{
                     JOptionPane.showMessageDialog(LoginFrame.this,"Error");
                 }
             }
         });
+    }
+
+    public void reset() {
+        jtfID.setText("");
+        jpf.setText("");
     }
 }

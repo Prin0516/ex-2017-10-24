@@ -15,7 +15,7 @@ public class MainFrame extends JFrame {
     private JMenu mG=new JMenu("Game");
     private JMenu mA=new JMenu("About");
     private JMenuItem jmiexit=new JMenuItem("Exit");
-    private JMenuItem jmiloto=new JMenuItem("Loto");
+    private JMenuItem jmiloto=new JMenuItem("樂透開獎");
     private JButton jbtnexit=new JButton("Close");
     private JButton jbtnregen=new JButton("Generate");
     private JDesktopPane jdp=new JDesktopPane();
@@ -36,6 +36,8 @@ public class MainFrame extends JFrame {
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
+                dispose();
+                loginFrame.reset();
                 loginFrame.setVisible(true);
             }
         });
@@ -65,7 +67,9 @@ public class MainFrame extends JFrame {
         jmiexit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+              loginFrame.setVisible(true);
+              dispose();
+                loginFrame.reset();
             }
         });
         jmiloto.addActionListener(new ActionListener() {
